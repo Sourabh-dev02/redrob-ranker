@@ -279,7 +279,13 @@ with tab2:
             if candidates:
                 st.success(f"Loaded {len(candidates)} candidates (JSONL format).")
 
-top_n = st.slider("How many top candidates to show?", min_value=5, max_value=min(100, max(len(candidates), 5)), value=min(10, max(len(candidates), 5)))
+top_n = st.slider(
+    "How many top candidates to show?",
+    min_value=1,
+    max_value=max(min(100, len(candidates)), 10),
+    value=min(10, max(len(candidates), 1)),
+    disabled=len(candidates) == 0,
+)
 
 if st.button("🚀 Run Ranker", type="primary", disabled=len(candidates) == 0):
     with st.spinner(f"Scoring {len(candidates)} candidates..."):
