@@ -12,7 +12,7 @@ team_members:
 
 github_repo: "https://github.com/Sourabh-dev02/redrob-ranker"
 
-sandbox_link: "https://YOUR_APP_NAME.streamlit.app"  # deploy app.py to Streamlit Cloud (free) and paste URL here
+sandbox_link: "https://redrob-ranker-sourabh.streamlit.app"
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
