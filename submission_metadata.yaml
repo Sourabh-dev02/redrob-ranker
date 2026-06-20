@@ -1,0 +1,53 @@
+team_name: "tmkoc_coder"
+
+primary_contact:
+  name: "Sourabh Mahindrakar"
+  email: "sourabhmahindrakar568@email.com"
+  phone: "+91-7981329412"
+
+team_members:
+  - name: "Sourabh Mahindrakar"
+    email: "sourabhmahindrakar568@email.com"
+    role: "ML Engineer"
+
+github_repo: "https://github.com/YOUR_USERNAME/redrob-ranker"
+
+sandbox_link: "https://YOUR_APP_NAME.streamlit.app"  # deploy app.py to Streamlit Cloud (free) and paste URL here
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+compute:
+  platform: "Windows PC"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.14.3"
+  os: "Windows 11"
+
+dependencies:
+  - "sentence-transformers==5.6.0"
+  - "torch==2.12.1"
+  - "pandas==3.0.3"
+  - "numpy==2.4.6"
+  - "scikit-learn==1.9.0"
+  - "python-docx==1.2.0"
+  - "pyyaml==6.0.3"
+  - "tqdm==4.68.3"
+
+approach_summary: >
+  Hybrid scoring system combining structured candidate analysis with optional
+  semantic embedding reranking. Phase 1 scores all 100k candidates using
+  weighted structured signals: technical skills match (core + nice-to-have),
+  career history analysis (detecting real IR/ML system building from job
+  descriptions), experience years fit, 23 behavioral signals from Redrob,
+  and location match. Phase 2 semantically reranks the top-500 using
+  sentence-transformers (all-MiniLM-L6-v2) cosine similarity against a JD
+  query. Hard penalties for: consulting-only careers, non-technical current
+  titles (Marketing/HR/etc), honeypot profiles. Career history descriptions
+  are analysed for plain-language signals (ranking, retrieval, recommendation,
+  search) so Tier 5 candidates who built real systems but dont use jargon
+  still rank correctly.
+
+ai_tools_used:
+  - "GitHub Copilot (code assistance)"
+
+estimated_runtime_seconds: 180

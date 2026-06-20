@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# dataset files - too large for github
+candidates.jsonl
+candidates.jsonl.gz
+[PUB]*/
+__MACOSX/
+
+# huggingface model cache
+.cache/
+
+# temp files
+*.tmp
